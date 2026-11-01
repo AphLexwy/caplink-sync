@@ -47,12 +47,6 @@
             min-width: 1280px;
             overflow-x: auto;
         }
-        .map-bg {
-            background-color: #e5e3df;
-            background-image: radial-gradient(#d4d0c8 2px, transparent 2px), radial-gradient(#d4d0c8 2px, #e5e3df 2px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-        }
     </style>
 </head>
 <body class="h-full bg-slate-100 text-slate-800 font-sans antialiased select-none">
@@ -67,20 +61,18 @@
     <!-- 1. LOGIN / LANDING PAGE VIEW -->
     <!-- =================================================================== -->
     <div id="login-view" class="fixed inset-0 z-40 flex bg-white overflow-hidden">
-        <!-- Left Banner Side (Hero Graphic & Branding) -->
+        <!-- Left Banner Side -->
         <div class="w-7/12 bg-navy-950 relative flex flex-col justify-between p-12 text-white overflow-hidden">
             <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-coral/20 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- LOGO PLACEHOLDER & TEXT BESIDE IT -->
             <div class="relative z-10 flex items-center space-x-4">
-                <div class="w-20 h-20 flex items-center justify-center bg-white rounded-xl shadow-lg p-1 shrink-0 overflow-hidden">
+                <div class="w-12 h-12 flex items-center justify-center bg-white rounded-xl shadow-lg p-1 shrink-0 overflow-hidden">
                     <img src="logo.jpg" alt="Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/50?text=LOGO';">
                 </div>
                 <h1 class="text-3xl font-extrabold tracking-tight text-white">CapLink<span class="text-brand-coral">&</span>Sync</h1>
             </div>
 
-            <!-- Hero Image Graphic Representation -->
             <div class="relative z-10 my-auto grid grid-cols-12 gap-8 items-center">
                 <div class="col-span-7 space-y-4">
                     <h2 class="text-3xl font-bold leading-tight text-slate-100">
@@ -113,7 +105,6 @@
                 </div>
             </div>
 
-            <!-- Bottom Badges -->
             <div class="relative z-10 grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
                 <div class="flex items-center space-x-3 bg-slate-800/40 border border-slate-700/50 p-3 rounded-xl">
                     <div class="w-9 h-9 rounded-lg bg-brand-coral/20 text-brand-coral flex items-center justify-center text-base">
@@ -150,14 +141,12 @@
         <!-- Right Side (Login Form) -->
         <div class="w-5/12 bg-white flex flex-col justify-between p-12">
             <div></div>
-
             <div class="max-w-md mx-auto w-full space-y-6">
                 <div>
                     <h2 class="text-2xl font-bold text-slate-900">Welcome Back</h2>
                     <p class="text-sm text-slate-500 mt-1">Sign in to access your dashboard</p>
                 </div>
 
-                <!-- Error Message Banner -->
                 <div id="login-error-banner" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-600 flex items-center space-x-2">
                     <i class="fa-solid fa-circle-exclamation text-rose-500 text-sm"></i>
                     <span>Invalid credentials! Use <strong class="underline">admin</strong> / <strong class="underline">admin</strong></span>
@@ -190,7 +179,7 @@
                             <input type="checkbox" checked class="w-4 h-4 rounded border-slate-300 text-brand-coral focus:ring-brand-coral">
                             <span>Remember me</span>
                         </label>
-                        <a href="#" onclick="showToast('Password reset link sent to registered email.')" class="text-slate-500 hover:text-brand-coral">Forgot password?</a>
+                        <a href="#" onclick="showToast('Password reset link sent.')" class="text-slate-500 hover:text-brand-coral">Forgot password?</a>
                     </div>
 
                     <button type="submit" class="w-full py-3 bg-brand-coral hover:bg-brand-hover text-white font-semibold rounded-xl shadow-lg shadow-brand-coral/30 transition-all flex items-center justify-center space-x-2">
@@ -209,7 +198,6 @@
                     <span>Login with SSO (School)</span>
                 </button>
             </div>
-
             <div class="text-center text-xs text-slate-400">
                 CapLink&Sync • Team Beam and Bytes (BnB)
             </div>
@@ -224,7 +212,6 @@
         <!-- SIDEBAR -->
         <aside class="w-64 bg-navy-950 flex flex-col justify-between shrink-0 border-r border-slate-800 text-slate-300">
             <div>
-                <!-- Sidebar Header: CapLink&Sync text title only -->
                 <div class="h-20 flex items-center px-6 border-b border-slate-800/80">
                     <div>
                         <h1 class="font-bold text-xl tracking-wide text-white">
@@ -234,7 +221,6 @@
                     </div>
                 </div>
 
-                <!-- Navigation List -->
                 <nav class="p-4 space-y-1.5">
                     <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition bg-brand-coral text-white shadow-lg shadow-brand-coral/20">
                         <i class="fa-solid fa-house w-5"></i>
@@ -271,7 +257,6 @@
                 </nav>
             </div>
 
-            <!-- Sidebar Bottom Location Badge -->
             <div class="p-4 border-t border-slate-800/80">
                 <div class="flex items-center space-x-3 text-slate-300">
                     <div class="w-8 h-8 rounded-full bg-navy-800 flex items-center justify-center text-slate-400">
@@ -297,13 +282,11 @@
                 </div>
 
                 <div class="flex items-center space-x-6">
-                    <!-- Alert Bell Icon -->
                     <button onclick="switchTab('alerts')" class="relative text-slate-500 hover:text-slate-700 p-1">
                         <i class="fa-regular fa-bell text-xl"></i>
                         <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 rounded-full ring-2 ring-white animate-pulse"></span>
                     </button>
 
-                    <!-- Profile Avatar & Info -->
                     <div class="flex items-center space-x-3 border-l border-slate-200 pl-6">
                         <div class="w-9 h-9 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
                             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="w-full h-full object-cover">
@@ -317,7 +300,6 @@
                         </div>
                     </div>
 
-                    <!-- Date Badge -->
                     <div class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 border border-slate-200 flex items-center space-x-2">
                         <i class="fa-regular fa-calendar text-slate-400"></i>
                         <span>Oct 26, 2025 08:42 AM</span>
@@ -341,7 +323,6 @@
                         <p class="text-sm text-slate-500 mt-0.5">Real-time student check-ins and system status</p>
                     </div>
 
-                    <!-- 4 STAT CARDS GRID -->
                     <div class="grid grid-cols-4 gap-6">
                         <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex items-center space-x-4">
                             <div class="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center text-2xl shrink-0">
@@ -349,7 +330,7 @@
                             </div>
                             <div>
                                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Registered Students</div>
-                                <div class="text-3xl font-extrabold text-slate-900 mt-1">1,200</div>
+                                <div id="stat-total-students" class="text-3xl font-extrabold text-slate-900 mt-1">9</div>
                             </div>
                         </div>
 
@@ -360,8 +341,8 @@
                             <div>
                                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Checked In</div>
                                 <div class="flex items-baseline space-x-2 mt-1">
-                                    <span class="text-3xl font-extrabold text-emerald-600">1,154</span>
-                                    <span class="text-sm font-semibold text-emerald-600">96.2%</span>
+                                    <span id="stat-checked-in" class="text-3xl font-extrabold text-emerald-600">7</span>
+                                    <span class="text-sm font-semibold text-emerald-600">77.8%</span>
                                 </div>
                             </div>
                         </div>
@@ -373,13 +354,12 @@
                             <div>
                                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Missing</div>
                                 <div class="flex items-baseline space-x-2 mt-1">
-                                    <span class="text-3xl font-extrabold text-brand-coral">46</span>
-                                    <span class="text-sm font-semibold text-brand-coral">3.8%</span>
+                                    <span id="stat-missing" class="text-3xl font-extrabold text-brand-coral">1</span>
+                                    <span class="text-sm font-semibold text-brand-coral">11.1%</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Distress Alerts Card -->
                         <div onclick="switchTab('alerts')" class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex items-center space-x-4 cursor-pointer hover:border-rose-300 transition">
                             <div class="w-14 h-14 rounded-2xl bg-rose-500/10 text-rose-600 flex items-center justify-center text-2xl shrink-0 animate-pulse">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -394,127 +374,55 @@
                         </div>
                     </div>
 
-                    <!-- DASHBOARD CONTENT ROW 2 -->
                     <div class="grid grid-cols-12 gap-6">
-                        <!-- Donut Chart Card -->
-                        <div class="col-span-4 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-                            <h3 class="font-bold text-slate-900 text-sm">Check-in Status</h3>
-                            
+                        <div class="col-span-6 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                            <h3 class="font-bold text-slate-900 text-sm">Check-in Status Distribution</h3>
                             <div class="relative flex items-center justify-center my-4 h-52">
                                 <canvas id="dashDonutChart"></canvas>
-                                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                                    <span class="text-3xl font-extrabold text-slate-900">96.2%</span>
-                                    <span class="text-xs text-slate-500 font-medium">Checked in</span>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3 pt-3 border-t border-slate-100 text-xs font-semibold">
-                                <div class="flex items-center justify-between">
-                                    <span class="flex items-center space-x-2 text-slate-600">
-                                        <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                                        <span>Checked In</span>
-                                    </span>
-                                    <span class="text-slate-900 font-bold">1,154</span>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="flex items-center space-x-2 text-slate-600">
-                                        <span class="w-3 h-3 rounded-full bg-brand-coral"></span>
-                                        <span>Missing</span>
-                                    </span>
-                                    <span class="text-slate-900 font-bold">46</span>
-                                </div>
-                                <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-                                    <span class="text-slate-400">Total</span>
-                                    <span class="text-slate-900 font-bold">1,200</span>
-                                </div>
                             </div>
                         </div>
 
-                        <!-- Recent Activities Timeline Card -->
-                        <div class="col-span-4 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
-                            <h3 class="font-bold text-slate-900 text-sm mb-4">Recent Activities</h3>
+                        <div class="col-span-6 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
+                            <h3 class="font-bold text-slate-900 text-sm mb-4">Recent Activities & Module Pings</h3>
                             <div class="space-y-4 text-xs">
                                 <div class="flex items-center justify-between py-1">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Student #1043</strong> checked in</span>
+                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Reyes, Angela</strong> (HM-001) checked in</span>
                                     </div>
                                     <span class="text-slate-400 font-mono">08:42 AM</span>
                                 </div>
-
                                 <div class="flex items-center justify-between py-1">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Student #0765</strong> checked in</span>
+                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Santos, Carlo</strong> (HM-002) checked in</span>
                                     </div>
                                     <span class="text-slate-400 font-mono">08:41 AM</span>
                                 </div>
-
-                                <div class="flex items-center justify-between py-1">
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Student #1189</strong> checked in</span>
-                                    </div>
-                                    <span class="text-slate-400 font-mono">08:40 AM</span>
-                                </div>
-
-                                <div class="flex items-center justify-between py-1">
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-brand-coral"></span>
-                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Student #0632</strong> is missing</span>
-                                    </div>
-                                    <span class="text-slate-400 font-mono">08:35 AM</span>
-                                </div>
-
                                 <div class="flex items-center justify-between py-1">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                                        <span class="text-slate-700 font-medium">Distress signal from <strong class="text-rose-600">#0217</strong></span>
+                                        <span class="text-slate-700 font-medium">Distress signal triggered from <strong class="text-rose-600">Ramos, Ken</strong> (HM-007)</span>
                                     </div>
-                                    <span class="text-slate-400 font-mono">08:32 AM</span>
+                                    <span class="text-slate-400 font-mono">08:33 AM</span>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- School Assembly Area Map Card -->
-                        <div class="col-span-4 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-                            <h3 class="font-bold text-slate-900 text-sm mb-3">School Assembly Area</h3>
-                            
-                            <div class="map-bg h-48 rounded-xl border border-slate-200 relative overflow-hidden flex items-center justify-center">
-                                <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-md text-[10px] font-bold text-slate-600 shadow-sm border border-slate-200">
-                                    Main Building
-                                </div>
-                                <div class="flex flex-col items-center space-y-1">
-                                    <div class="w-8 h-8 rounded-full bg-navy-900 text-white flex items-center justify-center text-sm shadow-lg animate-bounce">
-                                        <i class="fa-solid fa-location-dot text-brand-coral"></i>
-                                    </div>
-                                    <span class="bg-navy-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-md">Assembly Area</span>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
-                                <div class="flex items-center space-x-2">
-                                    <i class="fa-solid fa-tower-broadcast text-emerald-500"></i>
-                                    <span class="font-semibold text-slate-700">Live Location (Receiver)</span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 font-bold text-[10px]">Online</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 2: STUDENTS MONITORING / LIST -->
+                <!-- VIEW 2: STUDENTS MONITORING & ADD/REMOVE PER SECTION -->
                 <!-- ======================================================= -->
                 <div id="tab-students" class="tab-page hidden space-y-6">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-2xl font-bold text-slate-900">Students</h2>
-                            <p class="text-sm text-slate-500 mt-0.5">Monitor check-in status and details.</p>
+                            <h2 class="text-2xl font-bold text-slate-900">Students & Helmet Assignments</h2>
+                            <p class="text-sm text-slate-500 mt-0.5">Assign helmet modules and manage section rosters.</p>
                         </div>
-                        <button onclick="showToast('Exporting student accountability report...')" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
-                            <i class="fa-solid fa-download"></i>
-                            <span>Export Data</span>
+                        <button onclick="openAddStudentModal()" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>Add Student</span>
                         </button>
                     </div>
 
@@ -522,7 +430,7 @@
                         <div class="p-4 border-b border-slate-200 flex items-center justify-between">
                             <div class="w-80 relative">
                                 <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-xs text-slate-400"></i>
-                                <input type="text" id="student-search" oninput="filterStudents()" placeholder="Search student name, ID or section..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brand-coral">
+                                <input type="text" id="student-search" oninput="filterStudents()" placeholder="Search student name, ID or helmet..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brand-coral">
                             </div>
                             <div class="flex space-x-3 text-xs">
                                 <select id="section-filter" onchange="filterStudents()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-600 focus:outline-none">
@@ -548,67 +456,52 @@
                                     <th class="p-4">ID</th>
                                     <th class="p-4">Name</th>
                                     <th class="p-4">Section</th>
+                                    <th class="p-4">Assigned Helmet</th>
                                     <th class="p-4">Status</th>
-                                    <th class="p-4">Last Check-in</th>
                                     <th class="p-4">Battery</th>
+                                    <th class="p-4 text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="student-table-body" class="divide-y divide-slate-100 text-slate-700 font-medium">
                                 <!-- Populated dynamically by JS -->
                             </tbody>
                         </table>
-
-                        <div class="p-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                            <span>Showing 1-8 of 1,200 students</span>
-                            <div class="flex space-x-1">
-                                <button class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg">&lt;</button>
-                                <button class="px-3 py-1.5 bg-brand-coral text-white font-bold rounded-lg">1</button>
-                                <button class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg">2</button>
-                                <button class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg">3</button>
-                                <button class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg">&gt;</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 3: DEVICE MANAGEMENT -->
+                <!-- VIEW 3: DEVICE MANAGEMENT & UPLOAD TO RECEIVER -->
                 <!-- ======================================================= -->
                 <div id="tab-devices" class="tab-page hidden space-y-6">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-2xl font-bold text-slate-900">Devices</h2>
-                            <p class="text-sm text-slate-500 mt-0.5">Manage helmet modules and receiver units</p>
+                            <h2 class="text-2xl font-bold text-slate-900">Devices & Receiver Synchronization</h2>
+                            <p class="text-sm text-slate-500 mt-0.5">Manage helmet IDs and upload roster/assignments to off-grid receivers</p>
                         </div>
-                        <button onclick="showToast('Scanning active LoRa nodes... All nodes responding.')" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
-                            <i class="fa-solid fa-rotate"></i>
-                            <span>Scan Network</span>
-                        </button>
+                        <div class="flex space-x-3">
+                            <button onclick="uploadToReceiver()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>Upload to Receiver</span>
+                            </button>
+                            <button onclick="showToast('Scanning active LoRa nodes... All nodes responding.')" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
+                                <i class="fa-solid fa-rotate"></i>
+                                <span>Scan Network</span>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
                         <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
-                            <div class="flex space-x-2">
-                                <button onclick="filterDevices('all')" id="dev-btn-all" class="px-4 py-2 rounded-xl bg-brand-coral text-white text-xs font-semibold transition">All Devices</button>
-                                <button onclick="filterDevices('Helmet Module')" id="dev-btn-helmet" class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 text-xs font-semibold transition">Helmets</button>
-                                <button onclick="filterDevices('Receiver')" id="dev-btn-receiver" class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 text-xs font-semibold transition">Receivers</button>
-                            </div>
-                            <div class="flex space-x-3 text-xs">
-                                <input type="text" id="device-search" oninput="renderDevices()" placeholder="Search by ID..." class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-coral">
-                                <select id="device-status-filter" onchange="renderDevices()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-600 focus:outline-none">
-                                    <option value="">All Status</option>
-                                    <option value="Online">Online</option>
-                                    <option value="Low Battery">Low Battery</option>
-                                    <option value="No Signal">No Signal</option>
-                                </select>
-                            </div>
+                            <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">Active LoRa Mesh Nodes & Helmets</div>
+                            <div class="text-xs text-slate-500" id="sync-status-badge"><i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Receiver database synchronized</div>
                         </div>
 
                         <table class="w-full text-left text-xs font-medium">
                             <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
                                 <tr>
-                                    <th class="p-4">ID</th>
-                                    <th class="p-4">Type</th>
+                                    <th class="p-4">Helmet ID</th>
+                                    <th class="p-4">Assigned Student</th>
+                                    <th class="p-4">Section</th>
                                     <th class="p-4">Status</th>
                                     <th class="p-4">Battery</th>
                                     <th class="p-4">Last Signal</th>
@@ -643,7 +536,7 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-rose-900 text-sm">Distress Alert Triggered</h3>
-                                <p class="text-xs text-rose-700 mt-0.5">Student #0217 (Mark Joseph Dela Cruz) has pressed the helmet distress button. · Oct 26, 2025 08:32 AM</p>
+                                <p class="text-xs text-rose-700 mt-0.5">Student Ramos, Ken (Helmet #HM-007) has triggered the distress button. · Oct 26, 2025 08:33 AM</p>
                             </div>
                         </div>
                         <button onclick="acknowledgeAlert()" id="ack-btn" class="bg-brand-coral hover:bg-brand-hover text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md transition">
@@ -651,116 +544,34 @@
                         </button>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-6">
-                        <!-- Student Telemetry Card -->
-                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-                            <div class="flex items-center space-x-4">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="w-14 h-14 rounded-full object-cover border-2 border-rose-500">
-                                <div>
-                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Student Name</p>
-                                    <h4 class="font-bold text-slate-900 text-base">Dela Cruz, Mark Joseph</h4>
-                                    <p class="text-xs text-slate-500 mt-0.5">ID: #0217 · Section: Grade 10 - D</p>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-center">
-                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">Signal Strength</p>
-                                    <p class="text-xs font-bold text-emerald-600 mt-1"><i class="fa-solid fa-signal mr-1"></i>Good (-64 dBm)</p>
-                                </div>
-                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">Battery Level</p>
-                                    <p class="text-xs font-bold text-slate-800 mt-1"><i class="fa-solid fa-battery-half text-amber-500 mr-1"></i>68%</p>
-                                </div>
-                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">Device ID</p>
-                                    <p class="text-xs font-bold text-slate-800 mt-1"><i class="fa-solid fa-microchip mr-1"></i>HM-004</p>
-                                </div>
-                            </div>
-
-                            <div class="flex space-x-3 pt-2">
-                                <button onclick="showToast('Response team dispatched to student location.')" class="flex-1 bg-brand-coral hover:bg-brand-hover text-white py-2.5 rounded-xl text-xs font-semibold shadow-md transition">Dispatch Team</button>
-                                <button onclick="showToast('Calling emergency contact for Mark Joseph Dela Cruz...')" class="flex-1 border border-slate-200 hover:bg-slate-50 text-slate-700 py-2.5 rounded-xl text-xs font-semibold transition">Contact Student</button>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 max-w-xl">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="w-14 h-14 rounded-full object-cover border-2 border-rose-500">
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Student Name</p>
+                                <h4 class="font-bold text-slate-900 text-base">Ramos, Ken</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">ID: #0018 · Section: Grade 10 - D · Helmet: <strong class="text-rose-600">HM-007</strong></p>
                             </div>
                         </div>
-
-                        <!-- Map Card -->
-                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Last Known Location</p>
-                                <h4 class="font-bold text-slate-800 text-sm mt-1">Assembly Area (North Field) — Campus Quadrangle</h4>
-                            </div>
-                            <div class="map-bg h-44 rounded-xl flex items-center justify-center border border-slate-200 my-3 relative overflow-hidden">
-                                <div class="absolute w-6 h-6 rounded-full bg-rose-500/30 animate-ping"></div>
-                                <span class="bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center space-x-2">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <span>Beacon #0217 Active</span>
-                                </span>
-                            </div>
-                            <p class="text-[11px] text-slate-500 text-center">LoRa triangulation established with 3 campus repeater nodes.</p>
+                        <div class="flex space-x-3 pt-2">
+                            <button onclick="showToast('Response team dispatched to North Field assembly zone.')" class="flex-1 bg-brand-coral hover:bg-brand-hover text-white py-2.5 rounded-xl text-xs font-semibold shadow-md transition">Dispatch Team</button>
+                            <button onclick="showToast('Calling emergency contact for Ramos, Ken...')" class="flex-1 border border-slate-200 hover:bg-slate-50 text-slate-700 py-2.5 rounded-xl text-xs font-semibold transition">Contact Student</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 5: REPORTS & ANALYTICS -->
+                <!-- VIEW 5: REPORTS -->
                 <!-- ======================================================= -->
                 <div id="tab-reports" class="tab-page hidden space-y-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h2 class="text-2xl font-bold text-slate-900">Reports & Analytics</h2>
-                            <p class="text-sm text-slate-500 mt-0.5">Generate reports and view system performance</p>
-                        </div>
-                        <div class="flex space-x-3 text-xs">
-                            <select class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-slate-600 font-semibold focus:outline-none">
-                                <option>Oct 20, 2025 - Oct 26, 2025</option>
-                            </select>
-                            <button onclick="showToast('Report successfully exported.')" class="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-xl font-semibold transition shadow-sm">Export</button>
-                        </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Reports & Analytics</h2>
+                        <p class="text-sm text-slate-500 mt-0.5">System performance and check-in logs</p>
                     </div>
-
-                    <!-- Report Sub-Tabs -->
-                    <div class="flex space-x-2 border-b border-slate-200 pb-3 text-xs font-semibold">
-                        <button class="px-4 py-2 rounded-xl bg-brand-coral text-white shadow-sm">Overview</button>
-                        <button onclick="showToast('Switched to Attendance Logs')" class="px-4 py-2 text-slate-500 hover:bg-slate-100 rounded-xl transition">Attendance</button>
-                        <button onclick="showToast('Switched to Alert Logs')" class="px-4 py-2 text-slate-500 hover:bg-slate-100 rounded-xl transition">Alerts</button>
-                        <button onclick="showToast('Switched to Device Telemetry Logs')" class="px-4 py-2 text-slate-500 hover:bg-slate-100 rounded-xl transition">Device Logs</button>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-6">
-                        <!-- Main Line Chart -->
-                        <div class="col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                            <h3 class="font-bold text-slate-800 text-sm mb-4">Check-in Trend (Weekly)</h3>
-                            <div class="h-64 relative">
-                                <canvas id="trendChart"></canvas>
-                            </div>
-                        </div>
-
-                        <!-- Top Missing Sections -->
-                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <h3 class="font-bold text-slate-800 text-sm mb-3">Top Sections (Missing)</h3>
-                            <div class="space-y-3 text-xs">
-                                <div class="flex justify-between items-center py-2 border-b border-slate-100">
-                                    <span class="text-slate-700 font-semibold">Grade 10 - D</span>
-                                    <span class="font-bold bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full">12 Missing</span>
-                                </div>
-                                <div class="flex justify-between items-center py-2 border-b border-slate-100">
-                                    <span class="text-slate-700 font-semibold">Grade 10 - C</span>
-                                    <span class="font-bold bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full">10 Missing</span>
-                                </div>
-                                <div class="flex justify-between items-center py-2 border-b border-slate-100">
-                                    <span class="text-slate-700 font-semibold">Grade 10 - B</span>
-                                    <span class="font-bold bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full">8 Missing</span>
-                                </div>
-                                <div class="flex justify-between items-center py-2 border-b border-slate-100">
-                                    <span class="text-slate-700 font-semibold">Grade 10 - A</span>
-                                    <span class="font-bold bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full">6 Missing</span>
-                                </div>
-                                <div class="flex justify-between items-center py-2">
-                                    <span class="text-slate-700 font-semibold">Others</span>
-                                    <span class="font-bold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">10 Missing</span>
-                                </div>
-                            </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-slate-800 text-sm mb-4">Check-in Trend (Weekly)</h3>
+                        <div class="h-64 relative">
+                            <canvas id="trendChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -773,23 +584,10 @@
                         <h2 class="text-2xl font-bold text-slate-900">Settings</h2>
                         <p class="text-sm text-slate-500 mt-0.5">Configure alert thresholds and school parameters</p>
                     </div>
-
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-xl space-y-4 text-xs">
                         <div>
                             <label class="block font-bold text-slate-700 mb-1">School Name</label>
                             <input type="text" value="Mapúa Malayan Colleges Mindanao" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-coral">
-                        </div>
-                        <div>
-                            <label class="block font-bold text-slate-700 mb-1">Evacuation Alarm Sound</label>
-                            <select class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-coral">
-                                <option>Siren Tone Alpha (High Priority)</option>
-                                <option>Chime Alert</option>
-                                <option>Muted</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block font-bold text-slate-700 mb-1">Mesh Network Frequency</label>
-                            <input type="text" value="915 MHz (LoRaWAN ISM Band)" disabled class="w-full p-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-500">
                         </div>
                         <div class="pt-2">
                             <button onclick="showToast('Settings saved successfully.')" class="px-5 py-2.5 bg-brand-coral hover:bg-brand-hover text-white font-semibold rounded-xl shadow-md transition">Save Changes</button>
@@ -801,68 +599,86 @@
         </div>
     </div>
 
-    <!-- =================================================================== -->
-    <!-- JAVASCRIPT LOGIC & INTERACTIVITY -->
-    <!-- =================================================================== -->
-    <script>
-        // Mock Student Dataset
-        const studentsData = [
-            { id: "0012", name: "Reyes, Angela", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80", section: "Grade 10 - A", status: "Checked In", time: "08:42 AM", battery: "82%" },
-            { id: "0013", name: "Santos, Carlo", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80", section: "Grade 10 - A", status: "Checked In", time: "08:41 AM", battery: "76%" },
-            { id: "0014", name: "Cruz, Bea", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&q=80", section: "Grade 10 - B", status: "Checked In", time: "08:41 AM", battery: "91%" },
-            { id: "0015", name: "Garcia, Miguel", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80", section: "Grade 10 - B", status: "Missing", time: "—", battery: "68%" },
-            { id: "0016", name: "Lopez, Maria", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&q=80", section: "Grade 10 - C", status: "Checked In", time: "08:40 AM", battery: "85%" },
-            { id: "0017", name: "Santos, John", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&q=80", section: "Grade 10 - C", status: "Checked In", time: "08:39 AM", battery: "73%" },
-            { id: "0018", name: "Ramos, Ken", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80", section: "Grade 10 - D", status: "Distress Alert", time: "08:33 AM", battery: "56%" },
-            { id: "0019", name: "Villanueva, Lara", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&q=80", section: "Grade 10 - D", status: "Checked In", time: "08:32 AM", battery: "88%" },
-            { id: "0020", name: "Flores, Daniel", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=80&q=80", section: "Grade 10 - E", status: "Checked In", time: "08:31 AM", battery: "79%" }
-        ];
+    <!-- MODAL: ADD STUDENT -->
+    <div id="add-student-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl space-y-4">
+            <h3 class="font-bold text-lg text-slate-900">Add New Student</h3>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Student ID</label>
+                    <input type="text" id="new-id" placeholder="e.g. 0021" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="new-name" placeholder="e.g. Dela Cruz, Juan" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Section</label>
+                    <select id="new-section" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                        <option value="Grade 10 - A">Grade 10 - A</option>
+                        <option value="Grade 10 - B">Grade 10 - B</option>
+                        <option value="Grade 10 - C">Grade 10 - C</option>
+                        <option value="Grade 10 - D">Grade 10 - D</option>
+                        <option value="Grade 10 - E">Grade 10 - E</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Assigned Helmet ID</label>
+                    <input type="text" id="new-helmet" placeholder="e.g. HM-010" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                </div>
+            </div>
+            <div class="flex space-x-3 pt-2">
+                <button onclick="closeAddStudentModal()" class="flex-1 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl text-xs transition">Cancel</button>
+                <button onclick="saveNewStudent()" class="flex-1 py-2.5 bg-brand-coral hover:bg-brand-hover text-white font-semibold rounded-xl text-xs transition">Add Student</button>
+            </div>
+        </div>
+    </div>
 
-        // Mock Device Dataset
-        const devicesData = [
-            { id: "HM-001", type: "Helmet Module", status: "Online", battery: "82%", signal: "08:42 AM" },
-            { id: "HM-002", type: "Helmet Module", status: "Online", battery: "95%", signal: "08:41 AM" },
-            { id: "HM-003", type: "Helmet Module", status: "Online", battery: "78%", signal: "08:40 AM" },
-            { id: "HM-004", type: "Helmet Module", status: "Low Battery", battery: "15%", signal: "08:38 AM" },
-            { id: "HM-005", type: "Helmet Module", status: "Online", battery: "88%", signal: "08:37 AM" },
-            { id: "HM-009", type: "Helmet Module", status: "No Signal", battery: "—", signal: "08:32 AM" },
-            { id: "RC-101", type: "Receiver", status: "Online", battery: "74%", signal: "08:40 AM" },
-            { id: "RC-102", type: "Receiver", status: "Online", battery: "91%", signal: "08:42 AM" }
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mutable Student Dataset with Helmet Assignments
+        let studentsData = [
+            { id: "0012", name: "Reyes, Angela", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80", section: "Grade 10 - A", helmet: "HM-001", status: "Checked In", time: "08:42 AM", battery: "82%" },
+            { id: "0013", name: "Santos, Carlo", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80", section: "Grade 10 - A", helmet: "HM-002", status: "Checked In", time: "08:41 AM", battery: "76%" },
+            { id: "0014", name: "Cruz, Bea", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&q=80", section: "Grade 10 - B", helmet: "HM-003", status: "Checked In", time: "08:41 AM", battery: "91%" },
+            { id: "0015", name: "Garcia, Miguel", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80", section: "Grade 10 - B", helmet: "HM-004", status: "Missing", time: "—", battery: "68%" },
+            { id: "0016", name: "Lopez, Maria", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&q=80", section: "Grade 10 - C", helmet: "HM-005", status: "Checked In", time: "08:40 AM", battery: "85%" },
+            { id: "0017", name: "Santos, John", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&q=80", section: "Grade 10 - C", helmet: "HM-006", status: "Checked In", time: "08:39 AM", battery: "73%" },
+            { id: "0018", name: "Ramos, Ken", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80", section: "Grade 10 - D", helmet: "HM-007", status: "Distress Alert", time: "08:33 AM", battery: "56%" },
+            { id: "0019", name: "Villanueva, Lara", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&q=80", section: "Grade 10 - D", helmet: "HM-008", status: "Checked In", time: "08:32 AM", battery: "88%" },
+            { id: "0020", name: "Flores, Daniel", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=80&q=80", section: "Grade 10 - E", helmet: "HM-009", status: "Checked In", time: "08:31 AM", battery: "79%" }
         ];
 
         let chartsInitialized = false;
 
-        // Login Handler
         function handleLogin(e) {
             e.preventDefault();
             const u = document.getElementById('login-username').value.trim();
             const p = document.getElementById('login-password').value.trim();
             if (u === 'admin' && p === 'admin') {
-                document.getElementById('login-view').classList.add('hidden');
-                document.getElementById('main-app').classList.remove('hidden');
-                initCharts();
-                renderStudents(studentsData);
-                renderDevices();
+                loginSuccess();
             } else {
                 document.getElementById('login-error-banner').classList.remove('hidden');
             }
         }
 
         function handleLoginDirect() {
+            loginSuccess();
+            showToast('Successfully logged in via School SSO.');
+        }
+
+        function loginSuccess() {
             document.getElementById('login-view').classList.add('hidden');
             document.getElementById('main-app').classList.remove('hidden');
             initCharts();
             renderStudents(studentsData);
             renderDevices();
-            showToast('Successfully logged in via School SSO.');
+            updateStats();
         }
 
         function handleLogout() {
             document.getElementById('main-app').classList.add('hidden');
             document.getElementById('login-view').classList.remove('hidden');
-            document.getElementById('login-username').value = 'admin';
-            document.getElementById('login-password').value = 'admin';
-            document.getElementById('login-error-banner').classList.add('hidden');
             showToast('Logged out successfully.');
         }
 
@@ -878,33 +694,30 @@
             }
         }
 
-        // Toast Notification Trigger
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').innerText = message;
             toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 3000);
+            setTimeout(() => { toast.classList.add('hidden'); }, 3000);
         }
 
-        // Tab Navigation Switcher
         function switchTab(tabId) {
-            const pages = document.querySelectorAll('.tab-page');
-            pages.forEach(p => p.classList.add('hidden'));
-
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(n => {
+            document.querySelectorAll('.tab-page').forEach(p => p.classList.add('hidden'));
+            document.querySelectorAll('.nav-item').forEach(n => {
                 n.className = 'nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-100 hover:bg-slate-800/60';
             });
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            document.getElementById(`nav-${tabId}`).className = 'nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition bg-brand-coral text-white shadow-lg shadow-brand-coral/20';
+        }
 
-            const activePage = document.getElementById(`tab-${tabId}`);
-            if (activePage) activePage.classList.remove('hidden');
+        function updateStats() {
+            const total = studentsData.length;
+            const checkedIn = studentsData.filter(s => s.status === 'Checked In').length;
+            const missing = studentsData.filter(s => s.status === 'Missing' || s.status === 'Distress Alert').length;
 
-            const activeNav = document.getElementById(`nav-${tabId}`);
-            if (activeNav) {
-                activeNav.className = 'nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition bg-brand-coral text-white shadow-lg shadow-brand-coral/20';
-            }
+            document.getElementById('stat-total-students').innerText = total;
+            document.getElementById('stat-checked-in').innerText = checkedIn;
+            document.getElementById('stat-missing').innerText = missing;
         }
 
         // Render Students Table
@@ -912,7 +725,7 @@
             const tbody = document.getElementById('student-table-body');
             tbody.innerHTML = '';
             if (data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">No students found matching filters.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400">No students found.</td></tr>`;
                 return;
             }
 
@@ -936,17 +749,23 @@
                         <span class="text-slate-900 font-semibold">${s.name}</span>
                     </td>
                     <td class="p-4 text-slate-500">${s.section}</td>
+                    <td class="p-4"><span class="bg-slate-100 px-2 py-1 rounded font-mono text-xs text-slate-700">${s.helmet}</span></td>
                     <td class="p-4">
                         <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-semibold ${badgeClass}">
                             <i class="fa-solid ${icon}"></i>
                             <span>${s.status}</span>
                         </span>
                     </td>
-                    <td class="p-4 text-slate-500 font-mono">${s.time}</td>
                     <td class="p-4 font-mono font-bold text-slate-700">${s.battery}</td>
+                    <td class="p-4 text-right">
+                        <button onclick="removeStudent('${s.id}')" class="text-slate-400 hover:text-rose-600 p-1.5 transition" title="Remove student">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
                 `;
                 tbody.appendChild(tr);
             });
+            updateStats();
         }
 
         function filterStudents() {
@@ -955,7 +774,7 @@
             const stat = document.getElementById('status-filter').value;
 
             const filtered = studentsData.filter(s => {
-                const matchQuery = s.name.toLowerCase().includes(query) || s.id.toLowerCase().includes(query);
+                const matchQuery = s.name.toLowerCase().includes(query) || s.id.toLowerCase().includes(query) || s.helmet.toLowerCase().includes(query);
                 const matchSec = sec === "" || s.section === sec;
                 const matchStat = stat === "" || s.status === stat;
                 return matchQuery && matchSec && matchStat;
@@ -963,79 +782,97 @@
             renderStudents(filtered);
         }
 
-        let currentDeviceFilter = 'all';
-        function filterDevices(type) {
-            currentDeviceFilter = type;
-            ['all', 'Helmet Module', 'Receiver'].forEach(t => {
-                const btnId = t === 'all' ? 'dev-btn-all' : (t === 'Helmet Module' ? 'dev-btn-helmet' : 'dev-btn-receiver');
-                const btn = document.getElementById(btnId);
-                if (t === type) {
-                    btn.className = 'px-4 py-2 rounded-xl bg-brand-coral text-white text-xs font-semibold transition shadow-sm';
-                } else {
-                    btn.className = 'px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 text-xs font-semibold transition';
-                }
-            });
-            renderDevices();
+        // Add & Remove Student Operations
+        function openAddStudentModal() {
+            document.getElementById('add-student-modal').classList.remove('hidden');
         }
 
-        function renderDevices() {
-            const tbody = document.getElementById('device-table-body');
-            tbody.innerHTML = '';
-            const search = document.getElementById('device-search').value.toLowerCase();
-            const statusFilter = document.getElementById('device-status-filter').value;
+        function closeAddStudentModal() {
+            document.getElementById('add-student-modal').classList.add('hidden');
+        }
 
-            const filtered = devicesData.filter(d => {
-                const matchType = currentDeviceFilter === 'all' || d.type === currentDeviceFilter;
-                const matchSearch = d.id.toLowerCase().includes(search);
-                const matchStatus = statusFilter === '' || d.status === statusFilter;
-                return matchType && matchSearch && matchStatus;
-            });
+        function saveNewStudent() {
+            const id = document.getElementById('new-id').value.trim();
+            const name = document.getElementById('new-name').value.trim();
+            const section = document.getElementById('new-section').value;
+            const helmet = document.getElementById('new-helmet').value.trim() || 'HM-010';
 
-            if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-slate-400">No devices found.</td></tr>`;
+            if (!id || !name) {
+                alert('Please enter both Student ID and Name.');
                 return;
             }
 
-            filtered.forEach(d => {
-                let statBadge = 'bg-emerald-50 text-emerald-600';
-                if (d.status === 'Low Battery') statBadge = 'bg-amber-50 text-amber-600';
-                if (d.status === 'No Signal') statBadge = 'bg-rose-50 text-rose-600';
+            studentsData.push({
+                id: id,
+                name: name,
+                avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&q=80",
+                section: section,
+                helmet: helmet,
+                status: "Checked In",
+                time: "08:45 AM",
+                battery: "100%"
+            });
 
+            closeAddStudentModal();
+            renderStudents(studentsData);
+            renderDevices();
+            showToast(`Added ${name} to ${section} with helmet ${helmet}.`);
+        }
+
+        function removeStudent(id) {
+            if (confirm('Are you sure you want to remove this student?')) {
+                studentsData = studentsData.filter(s => s.id !== id);
+                renderStudents(studentsData);
+                renderDevices();
+                showToast('Student successfully removed.');
+            }
+        }
+
+        // Devices Table & Upload to Receiver
+        function renderDevices() {
+            const tbody = document.getElementById('device-table-body');
+            tbody.innerHTML = '';
+            studentsData.forEach(s => {
                 const tr = document.createElement('tr');
                 tr.className = 'hover:bg-slate-50 transition';
                 tr.innerHTML = `
-                    <td class="p-4 font-bold text-slate-900 font-mono">${d.id}</td>
-                    <td class="p-4 text-slate-700">${d.type}</td>
-                    <td class="p-4">
-                        <span class="px-2.5 py-1 rounded-full text-xs font-semibold ${statBadge}">${d.status}</span>
-                    </td>
-                    <td class="p-4 font-mono">${d.battery}</td>
-                    <td class="p-4 text-slate-500 font-mono">${d.signal}</td>
+                    <td class="p-4 font-bold font-mono text-slate-900">${s.helmet}</td>
+                    <td class="p-4 font-semibold text-slate-800">${s.name}</td>
+                    <td class="p-4 text-slate-500">${s.section}</td>
+                    <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Online</span></td>
+                    <td class="p-4 font-mono">${s.battery}</td>
+                    <td class="p-4 text-slate-500 font-mono">08:42 AM</td>
                 `;
                 tbody.appendChild(tr);
             });
+        }
+
+        function uploadToReceiver() {
+            showToast('Uploading student roster & helmet bindings to LoRa receiver node...');
+            setTimeout(() => {
+                showToast('Upload successful! Receiver updated with current student modules.');
+                document.getElementById('sync-status-badge').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Synchronized just now';
+            }, 1200);
         }
 
         function acknowledgeAlert() {
             const btn = document.getElementById('ack-btn');
             btn.innerText = 'Acknowledged ✓';
             btn.className = 'bg-emerald-600 text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md transition';
-            showToast('Distress alert acknowledged by Officer Teresa Villanueva.');
+            showToast('Distress alert acknowledged.');
         }
 
-        // Initialize Charts via Chart.js
         function initCharts() {
             if (chartsInitialized) return;
             chartsInitialized = true;
 
-            // Donut Chart on Dashboard
             const ctxDonut = document.getElementById('dashDonutChart').getContext('2d');
             new Chart(ctxDonut, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Checked In', 'Missing'],
+                    labels: ['Checked In', 'Missing / Alert'],
                     datasets: [{
-                        data: [1154, 46],
+                        data: [7, 2],
                         backgroundColor: ['#10B981', '#FF4D2D'],
                         borderWidth: 0,
                         cutout: '75%'
@@ -1044,11 +881,10 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } }
+                    plugins: { legend: { position: 'bottom' } }
                 }
             });
 
-            // Trend Line Chart in Reports
             const ctxTrend = document.getElementById('trendChart').getContext('2d');
             new Chart(ctxTrend, {
                 type: 'line',
@@ -1056,28 +892,18 @@
                     labels: ['Oct 20', 'Oct 21', 'Oct 22', 'Oct 23', 'Oct 24', 'Oct 25', 'Oct 26'],
                     datasets: [{
                         label: 'Checked In',
-                        data: [400, 650, 720, 850, 920, 990, 1154],
+                        data: [4, 5, 6, 6, 7, 7, 7],
                         borderColor: '#10B981',
                         backgroundColor: 'rgba(16, 185, 129, 0.05)',
                         borderWidth: 3,
                         fill: true,
-                        tension: 0.3
-                    }, {
-                        label: 'Missing',
-                        data: [300, 290, 280, 275, 270, 260, 46],
-                        borderColor: '#FF4D2D',
-                        borderWidth: 2,
                         tension: 0.3
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom' } },
-                    scales: {
-                        y: { grid: { color: '#f1f5f9' } },
-                        x: { grid: { display: false } }
-                    }
+                    plugins: { legend: { position: 'bottom' } }
                 }
             });
         }
