@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapLink & Sync - Student Accountability & Distress Signaling</title>
+    <title>CapLink & Sync - Student Accountability & Section Management</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN -->
@@ -61,7 +61,6 @@
     <!-- 1. LOGIN / LANDING PAGE VIEW -->
     <!-- =================================================================== -->
     <div id="login-view" class="fixed inset-0 z-40 flex bg-white overflow-hidden">
-        <!-- Left Banner Side -->
         <div class="w-7/12 bg-navy-950 relative flex flex-col justify-between p-12 text-white overflow-hidden">
             <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-coral/20 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -76,7 +75,7 @@
             <div class="relative z-10 my-auto grid grid-cols-12 gap-8 items-center">
                 <div class="col-span-7 space-y-4">
                     <h2 class="text-3xl font-bold leading-tight text-slate-100">
-                        Student Accountability and Distress Signaling for School Evacuations
+                        Student Accountability and Helmet Module Management
                     </h2>
                     <div class="w-12 h-1 bg-brand-coral rounded-full"></div>
                     <p class="text-slate-300 text-base font-light leading-relaxed">
@@ -97,10 +96,6 @@
                             <div class="text-slate-400 text-[10px]">LORA OFF-GRID NODE</div>
                             <div class="text-brand-coral font-bold text-sm">CapLink Module #0217</div>
                         </div>
-                        <div class="flex justify-around text-slate-300 text-xs">
-                            <span><i class="fa-solid fa-signal text-emerald-400"></i> 915 MHz</span>
-                            <span><i class="fa-solid fa-battery-three-quarters text-emerald-400"></i> 88%</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +110,6 @@
                         <p class="text-[10px] text-slate-400">Real-time verification</p>
                     </div>
                 </div>
-
                 <div class="flex items-center space-x-3 bg-slate-800/40 border border-slate-700/50 p-3 rounded-xl">
                     <div class="w-9 h-9 rounded-lg bg-brand-coral/20 text-brand-coral flex items-center justify-center text-base">
                         <i class="fa-solid fa-tower-cell"></i>
@@ -125,20 +119,18 @@
                         <p class="text-[10px] text-slate-400">Mesh RF technology</p>
                     </div>
                 </div>
-
                 <div class="flex items-center space-x-3 bg-slate-800/40 border border-slate-700/50 p-3 rounded-xl">
                     <div class="w-9 h-9 rounded-lg bg-brand-coral/20 text-brand-coral flex items-center justify-center text-base">
                         <i class="fa-solid fa-bolt"></i>
                     </div>
                     <div>
                         <h4 class="text-xs font-bold text-slate-200">Faster Response</h4>
-                        <p class="text-[10px] text-slate-400">Instant distress alerts</p>
+                        <p class="text-[10px] text-slate-400">Instant check-ins</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Right Side (Login Form) -->
         <div class="w-5/12 bg-white flex flex-col justify-between p-12">
             <div></div>
             <div class="max-w-md mx-auto w-full space-y-6">
@@ -158,10 +150,9 @@
                             <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
                                 <i class="fa-regular fa-user text-sm"></i>
                             </span>
-                            <input type="text" id="login-username" value="admin" required placeholder="Email or Username" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-coral/50 focus:border-brand-coral transition">
+                            <input type="text" id="login-username" value="admin" required placeholder="Username" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-coral/50 focus:border-brand-coral transition">
                         </div>
                     </div>
-
                     <div>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
@@ -173,15 +164,6 @@
                             </button>
                         </div>
                     </div>
-
-                    <div class="flex items-center justify-between text-xs">
-                        <label class="flex items-center space-x-2 text-slate-600 cursor-pointer">
-                            <input type="checkbox" checked class="w-4 h-4 rounded border-slate-300 text-brand-coral focus:ring-brand-coral">
-                            <span>Remember me</span>
-                        </label>
-                        <a href="#" onclick="showToast('Password reset link sent.')" class="text-slate-500 hover:text-brand-coral">Forgot password?</a>
-                    </div>
-
                     <button type="submit" class="w-full py-3 bg-brand-coral hover:bg-brand-hover text-white font-semibold rounded-xl shadow-lg shadow-brand-coral/30 transition-all flex items-center justify-center space-x-2">
                         <span>Sign In</span>
                     </button>
@@ -227,22 +209,14 @@
                         <span>Dashboard</span>
                     </button>
 
-                    <button onclick="switchTab('students')" id="nav-students" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-100 hover:bg-slate-800/60">
-                        <i class="fa-solid fa-users w-5"></i>
-                        <span>Students</span>
+                    <button onclick="switchTab('sections')" id="nav-sections" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-100 hover:bg-slate-800/60">
+                        <i class="fa-solid fa-layer-group w-5"></i>
+                        <span>Sections & Students</span>
                     </button>
 
                     <button onclick="switchTab('devices')" id="nav-devices" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-100 hover:bg-slate-800/60">
                         <i class="fa-solid fa-microchip w-5"></i>
                         <span>Devices</span>
-                    </button>
-
-                    <button onclick="switchTab('alerts')" id="nav-alerts" class="nav-item w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-100 hover:bg-slate-800/60">
-                        <div class="flex items-center space-x-3">
-                            <i class="fa-solid fa-bell w-5"></i>
-                            <span>Alerts</span>
-                        </div>
-                        <span class="bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">1</span>
                     </button>
 
                     <button onclick="switchTab('reports')" id="nav-reports" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition text-slate-400 hover:text-slate-100 hover:bg-slate-800/60">
@@ -282,11 +256,6 @@
                 </div>
 
                 <div class="flex items-center space-x-6">
-                    <button onclick="switchTab('alerts')" class="relative text-slate-500 hover:text-slate-700 p-1">
-                        <i class="fa-regular fa-bell text-xl"></i>
-                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 rounded-full ring-2 ring-white animate-pulse"></span>
-                    </button>
-
                     <div class="flex items-center space-x-3 border-l border-slate-200 pl-6">
                         <div class="w-9 h-9 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
                             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="w-full h-full object-cover">
@@ -323,14 +292,14 @@
                         <p class="text-sm text-slate-500 mt-0.5">Real-time student check-ins and system status</p>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-6">
+                    <div class="grid grid-cols-3 gap-6">
                         <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex items-center space-x-4">
                             <div class="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center text-2xl shrink-0">
                                 <i class="fa-solid fa-users"></i>
                             </div>
                             <div>
-                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Registered Students</div>
-                                <div id="stat-total-students" class="text-3xl font-extrabold text-slate-900 mt-1">9</div>
+                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Students</div>
+                                <div id="stat-total-students" class="text-3xl font-extrabold text-slate-900 mt-1">0</div>
                             </div>
                         </div>
 
@@ -341,35 +310,18 @@
                             <div>
                                 <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Checked In</div>
                                 <div class="flex items-baseline space-x-2 mt-1">
-                                    <span id="stat-checked-in" class="text-3xl font-extrabold text-emerald-600">7</span>
-                                    <span class="text-sm font-semibold text-emerald-600">77.8%</span>
+                                    <span id="stat-checked-in" class="text-3xl font-extrabold text-emerald-600">0</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex items-center space-x-4">
                             <div class="w-14 h-14 rounded-2xl bg-brand-coral/10 text-brand-coral flex items-center justify-center text-2xl shrink-0">
-                                <i class="fa-solid fa-user-xmark"></i>
+                                <i class="fa-solid fa-layer-group"></i>
                             </div>
                             <div>
-                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Missing</div>
-                                <div class="flex items-baseline space-x-2 mt-1">
-                                    <span id="stat-missing" class="text-3xl font-extrabold text-brand-coral">1</span>
-                                    <span class="text-sm font-semibold text-brand-coral">11.1%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div onclick="switchTab('alerts')" class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex items-center space-x-4 cursor-pointer hover:border-rose-300 transition">
-                            <div class="w-14 h-14 rounded-2xl bg-rose-500/10 text-rose-600 flex items-center justify-center text-2xl shrink-0 animate-pulse">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Distress Alerts</div>
-                                <div class="flex items-baseline space-x-2 mt-1">
-                                    <span class="text-3xl font-extrabold text-rose-600">1</span>
-                                    <span class="text-xs font-semibold text-rose-500">Action Required</span>
-                                </div>
+                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Sections</div>
+                                <div id="stat-total-sections" class="text-3xl font-extrabold text-slate-900 mt-1">0</div>
                             </div>
                         </div>
                     </div>
@@ -388,23 +340,9 @@
                                 <div class="flex items-center justify-between py-1">
                                     <div class="flex items-center space-x-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Reyes, Angela</strong> (HM-001) checked in</span>
+                                        <span class="text-slate-700 font-medium">System initialized with modular section rosters</span>
                                     </div>
-                                    <span class="text-slate-400 font-mono">08:42 AM</span>
-                                </div>
-                                <div class="flex items-center justify-between py-1">
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                        <span class="text-slate-700 font-medium"><strong class="text-slate-900">Santos, Carlo</strong> (HM-002) checked in</span>
-                                    </div>
-                                    <span class="text-slate-400 font-mono">08:41 AM</span>
-                                </div>
-                                <div class="flex items-center justify-between py-1">
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                                        <span class="text-slate-700 font-medium">Distress signal triggered from <strong class="text-rose-600">Ramos, Ken</strong> (HM-007)</span>
-                                    </div>
-                                    <span class="text-slate-400 font-mono">08:33 AM</span>
+                                    <span class="text-slate-400 font-mono">08:00 AM</span>
                                 </div>
                             </div>
                         </div>
@@ -412,76 +350,39 @@
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 2: STUDENTS MONITORING & ADD/REMOVE PER SECTION -->
+                <!-- VIEW 2: SECTIONS & STUDENTS MANAGEMENT -->
                 <!-- ======================================================= -->
-                <div id="tab-students" class="tab-page hidden space-y-6">
+                <div id="tab-sections" class="tab-page hidden space-y-6">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-2xl font-bold text-slate-900">Students & Helmet Assignments</h2>
-                            <p class="text-sm text-slate-500 mt-0.5">Assign helmet modules and manage section rosters.</p>
+                            <h2 class="text-2xl font-bold text-slate-900">Sections & Student Rosters</h2>
+                            <p class="text-sm text-slate-500 mt-0.5">Add or remove sections, and manage student helmet assignments within each section.</p>
                         </div>
-                        <button onclick="openAddStudentModal()" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
-                            <i class="fa-solid fa-user-plus"></i>
-                            <span>Add Student</span>
+                        <button onclick="openAddSectionModal()" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
+                            <i class="fa-solid fa-folder-plus"></i>
+                            <span>Add New Section</span>
                         </button>
                     </div>
 
-                    <div class="bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden">
-                        <div class="p-4 border-b border-slate-200 flex items-center justify-between">
-                            <div class="w-80 relative">
-                                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-xs text-slate-400"></i>
-                                <input type="text" id="student-search" oninput="filterStudents()" placeholder="Search student name, ID or helmet..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brand-coral">
-                            </div>
-                            <div class="flex space-x-3 text-xs">
-                                <select id="section-filter" onchange="filterStudents()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-600 focus:outline-none">
-                                    <option value="">All Sections</option>
-                                    <option value="Grade 10 - A">Grade 10 - A</option>
-                                    <option value="Grade 10 - B">Grade 10 - B</option>
-                                    <option value="Grade 10 - C">Grade 10 - C</option>
-                                    <option value="Grade 10 - D">Grade 10 - D</option>
-                                    <option value="Grade 10 - E">Grade 10 - E</option>
-                                </select>
-                                <select id="status-filter" onchange="filterStudents()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-600 focus:outline-none">
-                                    <option value="">All Status</option>
-                                    <option value="Checked In">Checked In</option>
-                                    <option value="Missing">Missing</option>
-                                    <option value="Distress Alert">Distress Alert</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <table class="w-full text-left text-xs">
-                            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
-                                <tr>
-                                    <th class="p-4">ID</th>
-                                    <th class="p-4">Name</th>
-                                    <th class="p-4">Section</th>
-                                    <th class="p-4">Assigned Helmet</th>
-                                    <th class="p-4">Status</th>
-                                    <th class="p-4">Battery</th>
-                                    <th class="p-4 text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="student-table-body" class="divide-y divide-slate-100 text-slate-700 font-medium">
-                                <!-- Populated dynamically by JS -->
-                            </tbody>
-                        </table>
+                    <!-- Dynamic Sections Container -->
+                    <div id="sections-container" class="space-y-6">
+                        <!-- Populated dynamically via JS -->
                     </div>
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 3: DEVICE MANAGEMENT & UPLOAD TO RECEIVER -->
+                <!-- VIEW 3: DEVICES & UPLOAD DASHBOARD TO RECEIVER -->
                 <!-- ======================================================= -->
                 <div id="tab-devices" class="tab-page hidden space-y-6">
                     <div class="flex items-center justify-between">
                         <div>
                             <h2 class="text-2xl font-bold text-slate-900">Devices & Receiver Synchronization</h2>
-                            <p class="text-sm text-slate-500 mt-0.5">Manage helmet IDs and upload roster/assignments to off-grid receivers</p>
+                            <p class="text-sm text-slate-500 mt-0.5">Push your sections, student lists, and helmet module bindings directly to off-grid receivers</p>
                         </div>
                         <div class="flex space-x-3">
-                            <button onclick="uploadToReceiver()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
+                            <button onclick="uploadDashboardToReceiver()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
                                 <i class="fa-solid fa-cloud-arrow-up"></i>
-                                <span>Upload to Receiver</span>
+                                <span>Upload Dashboard to Receiver</span>
                             </button>
                             <button onclick="showToast('Scanning active LoRa nodes... All nodes responding.')" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
                                 <i class="fa-solid fa-rotate"></i>
@@ -493,7 +394,7 @@
                     <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
                         <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
                             <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">Active LoRa Mesh Nodes & Helmets</div>
-                            <div class="text-xs text-slate-500" id="sync-status-badge"><i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Receiver database synchronized</div>
+                            <div class="text-xs text-slate-500" id="sync-status-badge"><i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Dashboard ready for synchronization</div>
                         </div>
 
                         <table class="w-full text-left text-xs font-medium">
@@ -515,53 +416,7 @@
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 4: DISTRESS ALERTS -->
-                <!-- ======================================================= -->
-                <div id="tab-alerts" class="tab-page hidden space-y-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h2 class="text-2xl font-bold text-slate-900">Distress Alerts</h2>
-                            <p class="text-sm text-slate-500 mt-0.5">View and respond to distress signals</p>
-                        </div>
-                        <button onclick="showToast('Distress report PDF exported successfully.')" class="px-4 py-2 bg-brand-coral hover:bg-brand-hover text-white text-xs font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <span>Export Report</span>
-                        </button>
-                    </div>
-
-                    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center text-xl shrink-0 animate-bounce">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-rose-900 text-sm">Distress Alert Triggered</h3>
-                                <p class="text-xs text-rose-700 mt-0.5">Student Ramos, Ken (Helmet #HM-007) has triggered the distress button. · Oct 26, 2025 08:33 AM</p>
-                            </div>
-                        </div>
-                        <button onclick="acknowledgeAlert()" id="ack-btn" class="bg-brand-coral hover:bg-brand-hover text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md transition">
-                            Acknowledge Alert
-                        </button>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 max-w-xl">
-                        <div class="flex items-center space-x-4">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="w-14 h-14 rounded-full object-cover border-2 border-rose-500">
-                            <div>
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Student Name</p>
-                                <h4 class="font-bold text-slate-900 text-base">Ramos, Ken</h4>
-                                <p class="text-xs text-slate-500 mt-0.5">ID: #0018 · Section: Grade 10 - D · Helmet: <strong class="text-rose-600">HM-007</strong></p>
-                            </div>
-                        </div>
-                        <div class="flex space-x-3 pt-2">
-                            <button onclick="showToast('Response team dispatched to North Field assembly zone.')" class="flex-1 bg-brand-coral hover:bg-brand-hover text-white py-2.5 rounded-xl text-xs font-semibold shadow-md transition">Dispatch Team</button>
-                            <button onclick="showToast('Calling emergency contact for Ramos, Ken...')" class="flex-1 border border-slate-200 hover:bg-slate-50 text-slate-700 py-2.5 rounded-xl text-xs font-semibold transition">Contact Student</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ======================================================= -->
-                <!-- VIEW 5: REPORTS -->
+                <!-- VIEW 4: REPORTS -->
                 <!-- ======================================================= -->
                 <div id="tab-reports" class="tab-page hidden space-y-6">
                     <div>
@@ -577,12 +432,12 @@
                 </div>
 
                 <!-- ======================================================= -->
-                <!-- VIEW 6: SETTINGS -->
+                <!-- VIEW 5: SETTINGS -->
                 <!-- ======================================================= -->
                 <div id="tab-settings" class="tab-page hidden space-y-6">
                     <div>
                         <h2 class="text-2xl font-bold text-slate-900">Settings</h2>
-                        <p class="text-sm text-slate-500 mt-0.5">Configure alert thresholds and school parameters</p>
+                        <p class="text-sm text-slate-500 mt-0.5">Configure school parameters</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-xl space-y-4 text-xs">
                         <div>
@@ -599,32 +454,40 @@
         </div>
     </div>
 
-    <!-- MODAL: ADD STUDENT -->
+    <!-- MODAL: ADD SECTION -->
+    <div id="add-section-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl space-y-4">
+            <h3 class="font-bold text-lg text-slate-900">Add New Section</h3>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Section Name</label>
+                    <input type="text" id="new-section-name" placeholder="e.g. Grade 10 - F" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                </div>
+            </div>
+            <div class="flex space-x-3 pt-2">
+                <button onclick="closeAddSectionModal()" class="flex-1 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl text-xs transition">Cancel</button>
+                <button onclick="saveNewSection()" class="flex-1 py-2.5 bg-brand-coral hover:bg-brand-hover text-white font-semibold rounded-xl text-xs transition">Add Section</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD STUDENT TO SECTION -->
     <div id="add-student-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center">
         <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl space-y-4">
-            <h3 class="font-bold text-lg text-slate-900">Add New Student</h3>
+            <h3 class="font-bold text-lg text-slate-900" id="modal-student-title">Add Student to Section</h3>
+            <input type="hidden" id="modal-target-section">
             <div class="space-y-3 text-xs">
                 <div>
                     <label class="block font-semibold text-slate-700 mb-1">Student ID</label>
-                    <input type="text" id="new-id" placeholder="e.g. 0021" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                    <input type="text" id="new-student-id" placeholder="e.g. 0021" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
                 </div>
                 <div>
                     <label class="block font-semibold text-slate-700 mb-1">Full Name</label>
-                    <input type="text" id="new-name" placeholder="e.g. Dela Cruz, Juan" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                    <input type="text" id="new-student-name" placeholder="e.g. Dela Cruz, Juan" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
                 </div>
                 <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Section</label>
-                    <select id="new-section" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
-                        <option value="Grade 10 - A">Grade 10 - A</option>
-                        <option value="Grade 10 - B">Grade 10 - B</option>
-                        <option value="Grade 10 - C">Grade 10 - C</option>
-                        <option value="Grade 10 - D">Grade 10 - D</option>
-                        <option value="Grade 10 - E">Grade 10 - E</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Assigned Helmet ID</label>
-                    <input type="text" id="new-helmet" placeholder="e.g. HM-010" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                    <label class="block font-semibold text-slate-700 mb-1">Assigned Helmet Module ID</label>
+                    <input type="text" id="new-student-helmet" placeholder="e.g. HM-010" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
                 </div>
             </div>
             <div class="flex space-x-3 pt-2">
@@ -636,17 +499,29 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Mutable Student Dataset with Helmet Assignments
-        let studentsData = [
-            { id: "0012", name: "Reyes, Angela", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80", section: "Grade 10 - A", helmet: "HM-001", status: "Checked In", time: "08:42 AM", battery: "82%" },
-            { id: "0013", name: "Santos, Carlo", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80", section: "Grade 10 - A", helmet: "HM-002", status: "Checked In", time: "08:41 AM", battery: "76%" },
-            { id: "0014", name: "Cruz, Bea", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&q=80", section: "Grade 10 - B", helmet: "HM-003", status: "Checked In", time: "08:41 AM", battery: "91%" },
-            { id: "0015", name: "Garcia, Miguel", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80", section: "Grade 10 - B", helmet: "HM-004", status: "Missing", time: "—", battery: "68%" },
-            { id: "0016", name: "Lopez, Maria", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&q=80", section: "Grade 10 - C", helmet: "HM-005", status: "Checked In", time: "08:40 AM", battery: "85%" },
-            { id: "0017", name: "Santos, John", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&q=80", section: "Grade 10 - C", helmet: "HM-006", status: "Checked In", time: "08:39 AM", battery: "73%" },
-            { id: "0018", name: "Ramos, Ken", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80", section: "Grade 10 - D", helmet: "HM-007", status: "Distress Alert", time: "08:33 AM", battery: "56%" },
-            { id: "0019", name: "Villanueva, Lara", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&q=80", section: "Grade 10 - D", helmet: "HM-008", status: "Checked In", time: "08:32 AM", battery: "88%" },
-            { id: "0020", name: "Flores, Daniel", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=80&q=80", section: "Grade 10 - E", helmet: "HM-009", status: "Checked In", time: "08:31 AM", battery: "79%" }
+        // Structured Sections and Students Dataset
+        let sectionsData = [
+            {
+                name: "Grade 10 - A",
+                students: [
+                    { id: "0012", name: "Reyes, Angela", helmet: "HM-001", status: "Checked In", battery: "82%" },
+                    { id: "0013", name: "Santos, Carlo", helmet: "HM-002", status: "Checked In", battery: "76%" }
+                ]
+            },
+            {
+                name: "Grade 10 - B",
+                students: [
+                    { id: "0014", name: "Cruz, Bea", helmet: "HM-003", status: "Checked In", battery: "91%" },
+                    { id: "0015", name: "Garcia, Miguel", helmet: "HM-004", status: "Missing", battery: "68%" }
+                ]
+            },
+            {
+                name: "Grade 10 - C",
+                students: [
+                    { id: "0016", name: "Lopez, Maria", helmet: "HM-005", status: "Checked In", battery: "85%" },
+                    { id: "0017", name: "Santos, John", helmet: "HM-006", status: "Checked In", battery: "73%" }
+                ]
+            }
         ];
 
         let chartsInitialized = false;
@@ -671,7 +546,7 @@
             document.getElementById('login-view').classList.add('hidden');
             document.getElementById('main-app').classList.remove('hidden');
             initCharts();
-            renderStudents(studentsData);
+            renderSectionsView();
             renderDevices();
             updateStats();
         }
@@ -708,82 +583,143 @@
             });
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
             document.getElementById(`nav-${tabId}`).className = 'nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-sm transition bg-brand-coral text-white shadow-lg shadow-brand-coral/20';
+            if(tabId === 'sections') renderSectionsView();
+            if(tabId === 'devices') renderDevices();
+            updateStats();
         }
 
         function updateStats() {
-            const total = studentsData.length;
-            const checkedIn = studentsData.filter(s => s.status === 'Checked In').length;
-            const missing = studentsData.filter(s => s.status === 'Missing' || s.status === 'Distress Alert').length;
+            let totalStudents = 0;
+            let checkedIn = 0;
+            sectionsData.forEach(sec => {
+                totalStudents += sec.students.length;
+                checkedIn += sec.students.filter(s => s.status === 'Checked In').length;
+            });
 
-            document.getElementById('stat-total-students').innerText = total;
+            document.getElementById('stat-total-students').innerText = totalStudents;
             document.getElementById('stat-checked-in').innerText = checkedIn;
-            document.getElementById('stat-missing').innerText = missing;
+            document.getElementById('stat-total-sections').innerText = sectionsData.length;
         }
 
-        // Render Students Table
-        function renderStudents(data) {
-            const tbody = document.getElementById('student-table-body');
-            tbody.innerHTML = '';
-            if (data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400">No students found.</td></tr>`;
+        // Section & Student Management Renderers
+        function renderSectionsView() {
+            const container = document.getElementById('sections-container');
+            container.innerHTML = '';
+
+            if (sectionsData.length === 0) {
+                container.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-slate-200 text-center text-slate-400 text-xs">No sections available. Click "Add New Section" above to get started.</div>`;
                 return;
             }
 
-            data.forEach(s => {
-                let badgeClass = 'bg-emerald-50 text-emerald-600';
-                let icon = 'fa-circle-check';
-                if (s.status === 'Missing') {
-                    badgeClass = 'bg-amber-50 text-amber-600';
-                    icon = 'fa-triangle-exclamation';
-                } else if (s.status === 'Distress Alert') {
-                    badgeClass = 'bg-rose-50 text-rose-600 font-bold';
-                    icon = 'fa-bell';
+            sectionsData.forEach((sec, secIndex) => {
+                const sectionCard = document.createElement('div');
+                sectionCard.className = 'bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden';
+                
+                let studentsRows = '';
+                if (sec.students.length === 0) {
+                    studentsRows = `<tr><td colspan="6" class="p-6 text-center text-slate-400 text-xs">No students in this section yet.</td></tr>`;
+                } else {
+                    sec.students.forEach((s, sIndex) => {
+                        let badgeClass = 'bg-emerald-50 text-emerald-600';
+                        if (s.status === 'Missing') badgeClass = 'bg-amber-50 text-amber-600';
+
+                        studentsRows += `
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-bold text-slate-900">${s.id}</td>
+                                <td class="p-4 font-semibold text-slate-800">${s.name}</td>
+                                <td class="p-4"><span class="bg-slate-100 px-2 py-1 rounded font-mono text-xs text-slate-700">${s.helmet}</span></td>
+                                <td class="p-4"><span class="px-3 py-1 rounded-full text-xs font-semibold ${badgeClass}">${s.status}</span></td>
+                                <td class="p-4 font-mono font-bold text-slate-700">${s.battery}</td>
+                                <td class="p-4 text-right">
+                                    <button onclick="removeStudent('${sec.name}', '${s.id}')" class="text-slate-400 hover:text-rose-600 p-1.5 transition" title="Remove student">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    });
                 }
 
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-slate-50 transition';
-                tr.innerHTML = `
-                    <td class="p-4 font-bold text-slate-900">${s.id}</td>
-                    <td class="p-4 flex items-center space-x-3">
-                        <img src="${s.avatar}" class="w-8 h-8 rounded-full object-cover border border-slate-200">
-                        <span class="text-slate-900 font-semibold">${s.name}</span>
-                    </td>
-                    <td class="p-4 text-slate-500">${s.section}</td>
-                    <td class="p-4"><span class="bg-slate-100 px-2 py-1 rounded font-mono text-xs text-slate-700">${s.helmet}</span></td>
-                    <td class="p-4">
-                        <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-semibold ${badgeClass}">
-                            <i class="fa-solid ${icon}"></i>
-                            <span>${s.status}</span>
-                        </span>
-                    </td>
-                    <td class="p-4 font-mono font-bold text-slate-700">${s.battery}</td>
-                    <td class="p-4 text-right">
-                        <button onclick="removeStudent('${s.id}')" class="text-slate-400 hover:text-rose-600 p-1.5 transition" title="Remove student">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                    </td>
+                sectionCard.innerHTML = `
+                    <div class="p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-layer-group text-brand-coral"></i>
+                            <h3 class="font-bold text-slate-900 text-base">${sec.name}</h3>
+                            <span class="text-xs bg-slate-200 text-slate-700 px-2.5 py-0.5 rounded-full font-semibold">${sec.students.length} Students</span>
+                        </div>
+                        <div class="flex space-x-2 text-xs">
+                            <button onclick="openAddStudentModal('${sec.name}')" class="px-3 py-1.5 bg-brand-coral hover:bg-brand-hover text-white font-semibold rounded-xl shadow-sm transition flex items-center space-x-1.5">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span>Add Student</span>
+                            </button>
+                            <button onclick="removeSection('${sec.name}')" class="px-3 py-1.5 bg-white border border-slate-200 hover:bg-rose-50 text-slate-600 hover:text-rose-600 font-semibold rounded-xl shadow-sm transition" title="Remove section">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-white border-b border-slate-100 text-slate-400 uppercase tracking-wider font-semibold">
+                            <tr>
+                                <th class="p-4">ID</th>
+                                <th class="p-4">Name</th>
+                                <th class="p-4">Helmet Module</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4">Battery</th>
+                                <th class="p-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
+                            ${studentsRows}
+                        </tbody>
+                    </table>
                 `;
-                tbody.appendChild(tr);
+                container.appendChild(sectionCard);
             });
             updateStats();
         }
 
-        function filterStudents() {
-            const query = document.getElementById('student-search').value.toLowerCase();
-            const sec = document.getElementById('section-filter').value;
-            const stat = document.getElementById('status-filter').value;
-
-            const filtered = studentsData.filter(s => {
-                const matchQuery = s.name.toLowerCase().includes(query) || s.id.toLowerCase().includes(query) || s.helmet.toLowerCase().includes(query);
-                const matchSec = sec === "" || s.section === sec;
-                const matchStat = stat === "" || s.status === stat;
-                return matchQuery && matchSec && matchStat;
-            });
-            renderStudents(filtered);
+        // Add / Remove Section Functions
+        function openAddSectionModal() {
+            document.getElementById('new-section-name').value = '';
+            document.getElementById('add-section-modal').classList.remove('hidden');
         }
 
-        // Add & Remove Student Operations
-        function openAddStudentModal() {
+        function closeAddSectionModal() {
+            document.getElementById('add-section-modal').classList.add('hidden');
+        }
+
+        function saveNewSection() {
+            const name = document.getElementById('new-section-name').value.trim();
+            if (!name) {
+                alert('Please enter a section name.');
+                return;
+            }
+            if (sectionsData.some(sec => sec.name.toLowerCase() === name.toLowerCase())) {
+                alert('Section already exists.');
+                return;
+            }
+
+            sectionsData.push({ name: name, students: [] });
+            closeAddSectionModal();
+            renderSectionsView();
+            showToast(`Section "${name}" added successfully.`);
+        }
+
+        function removeSection(secName) {
+            if (confirm(`Are you sure you want to remove section "${secName}" and all its students?`)) {
+                sectionsData = sectionsData.filter(sec => sec.name !== secName);
+                renderSectionsView();
+                showToast(`Section "${secName}" removed.`);
+            }
+        }
+
+        // Add / Remove Student Functions
+        function openAddStudentModal(secName) {
+            document.getElementById('modal-target-section').value = secName;
+            document.getElementById('modal-student-title').innerText = `Add Student to ${secName}`;
+            document.getElementById('new-student-id').value = '';
+            document.getElementById('new-student-name').value = '';
+            document.getElementById('new-student-helmet').value = '';
             document.getElementById('add-student-modal').classList.remove('hidden');
         }
 
@@ -792,74 +728,76 @@
         }
 
         function saveNewStudent() {
-            const id = document.getElementById('new-id').value.trim();
-            const name = document.getElementById('new-name').value.trim();
-            const section = document.getElementById('new-section').value;
-            const helmet = document.getElementById('new-helmet').value.trim() || 'HM-010';
+            const secName = document.getElementById('modal-target-section').value;
+            const id = document.getElementById('new-student-id').value.trim();
+            const name = document.getElementById('new-student-name').value.trim();
+            const helmet = document.getElementById('new-student-helmet').value.trim() || 'HM-010';
 
             if (!id || !name) {
                 alert('Please enter both Student ID and Name.');
                 return;
             }
 
-            studentsData.push({
-                id: id,
-                name: name,
-                avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&q=80",
-                section: section,
-                helmet: helmet,
-                status: "Checked In",
-                time: "08:45 AM",
-                battery: "100%"
-            });
-
-            closeAddStudentModal();
-            renderStudents(studentsData);
-            renderDevices();
-            showToast(`Added ${name} to ${section} with helmet ${helmet}.`);
-        }
-
-        function removeStudent(id) {
-            if (confirm('Are you sure you want to remove this student?')) {
-                studentsData = studentsData.filter(s => s.id !== id);
-                renderStudents(studentsData);
-                renderDevices();
-                showToast('Student successfully removed.');
+            const section = sectionsData.find(sec => sec.name === secName);
+            if (section) {
+                section.students.push({
+                    id: id,
+                    name: name,
+                    helmet: helmet,
+                    status: "Checked In",
+                    battery: "100%"
+                });
+                closeAddStudentModal();
+                renderSectionsView();
+                showToast(`Added ${name} to ${secName}.`);
             }
         }
 
-        // Devices Table & Upload to Receiver
+        function removeStudent(secName, studentId) {
+            if (confirm('Are you sure you want to remove this student?')) {
+                const section = sectionsData.find(sec => sec.name === secName);
+                if (section) {
+                    section.students = section.students.filter(s => s.id !== studentId);
+                    renderSectionsView();
+                    showToast('Student removed successfully.');
+                }
+            }
+        }
+
+        // Devices Table & Upload Dashboard to Receiver
         function renderDevices() {
             const tbody = document.getElementById('device-table-body');
             tbody.innerHTML = '';
-            studentsData.forEach(s => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-slate-50 transition';
-                tr.innerHTML = `
-                    <td class="p-4 font-bold font-mono text-slate-900">${s.helmet}</td>
-                    <td class="p-4 font-semibold text-slate-800">${s.name}</td>
-                    <td class="p-4 text-slate-500">${s.section}</td>
-                    <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Online</span></td>
-                    <td class="p-4 font-mono">${s.battery}</td>
-                    <td class="p-4 text-slate-500 font-mono">08:42 AM</td>
-                `;
-                tbody.appendChild(tr);
+            let totalDevices = 0;
+
+            sectionsData.forEach(sec => {
+                sec.students.forEach(s => {
+                    totalDevices++;
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-slate-50 transition';
+                    tr.innerHTML = `
+                        <td class="p-4 font-bold font-mono text-slate-900">${s.helmet}</td>
+                        <td class="p-4 font-semibold text-slate-800">${s.name}</td>
+                        <td class="p-4 text-slate-500">${sec.name}</td>
+                        <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Online</span></td>
+                        <td class="p-4 font-mono">${s.battery}</td>
+                        <td class="p-4 text-slate-500 font-mono">08:42 AM</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
             });
+
+            if (totalDevices === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">No helmet devices bound to active students.</td></tr>`;
+            }
         }
 
-        function uploadToReceiver() {
-            showToast('Uploading student roster & helmet bindings to LoRa receiver node...');
+        function uploadDashboardToReceiver() {
+            showToast('Uploading dashboard sections and helmet rosters to off-grid LoRa receiver...');
             setTimeout(() => {
-                showToast('Upload successful! Receiver updated with current student modules.');
-                document.getElementById('sync-status-badge').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Synchronized just now';
+                showToast('Upload successful! Receiver node synchronized with current dashboard.');
+                document.getElementById('sync-status-badge').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Dashboard synchronized just now';
             }, 1200);
-        }
-
-        function acknowledgeAlert() {
-            const btn = document.getElementById('ack-btn');
-            btn.innerText = 'Acknowledged ✓';
-            btn.className = 'bg-emerald-600 text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md transition';
-            showToast('Distress alert acknowledged.');
         }
 
         function initCharts() {
@@ -870,9 +808,9 @@
             new Chart(ctxDonut, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Checked In', 'Missing / Alert'],
+                    labels: ['Checked In', 'Missing'],
                     datasets: [{
-                        data: [7, 2],
+                        data: [5, 1],
                         backgroundColor: ['#10B981', '#FF4D2D'],
                         borderWidth: 0,
                         cutout: '75%'
@@ -892,7 +830,7 @@
                     labels: ['Oct 20', 'Oct 21', 'Oct 22', 'Oct 23', 'Oct 24', 'Oct 25', 'Oct 26'],
                     datasets: [{
                         label: 'Checked In',
-                        data: [4, 5, 6, 6, 7, 7, 7],
+                        data: [3, 4, 5, 5, 5, 5, 5],
                         borderColor: '#10B981',
                         backgroundColor: 'rgba(16, 185, 129, 0.05)',
                         borderWidth: 3,
