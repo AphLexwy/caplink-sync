@@ -257,12 +257,9 @@
 
                 <div class="flex items-center space-x-6">
                     <div class="flex items-center space-x-3 border-l border-slate-200 pl-6">
-                        <div class="w-9 h-9 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="w-full h-full object-cover">
-                        </div>
-                        <div class="text-xs">
-                            <div class="font-bold text-slate-800 flex items-center space-x-1">
-                                <span>Ms. Teresa Villanueva</span>
+                        <div class="text-xs text-right">
+                            <div class="font-bold text-slate-800 flex items-center justify-end space-x-1">
+                                <span>Teresa Villanueva</span>
                                 <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
                             </div>
                             <div class="text-slate-500">School Safety Officer</div>
@@ -404,8 +401,6 @@
                                     <th class="p-4">Assigned Student</th>
                                     <th class="p-4">Section</th>
                                     <th class="p-4">Status</th>
-                                    <th class="p-4">Battery</th>
-                                    <th class="p-4">Last Signal</th>
                                 </tr>
                             </thead>
                             <tbody id="device-table-body" class="divide-y divide-slate-100 text-slate-700">
@@ -504,22 +499,22 @@
             {
                 name: "Grade 10 - A",
                 students: [
-                    { id: "0012", name: "Reyes, Angela", helmet: "HM-001", status: "Checked In", battery: "82%" },
-                    { id: "0013", name: "Santos, Carlo", helmet: "HM-002", status: "Checked In", battery: "76%" }
+                    { id: "0012", name: "Reyes, Angela", helmet: "HM-001", status: "Checked In" },
+                    { id: "0013", name: "Santos, Carlo", helmet: "HM-002", status: "Checked In" }
                 ]
             },
             {
                 name: "Grade 10 - B",
                 students: [
-                    { id: "0014", name: "Cruz, Bea", helmet: "HM-003", status: "Checked In", battery: "91%" },
-                    { id: "0015", name: "Garcia, Miguel", helmet: "HM-004", status: "Missing", battery: "68%" }
+                    { id: "0014", name: "Cruz, Bea", helmet: "HM-003", status: "Checked In" },
+                    { id: "0015", name: "Garcia, Miguel", helmet: "HM-004", status: "Missing" }
                 ]
             },
             {
                 name: "Grade 10 - C",
                 students: [
-                    { id: "0016", name: "Lopez, Maria", helmet: "HM-005", status: "Checked In", battery: "85%" },
-                    { id: "0017", name: "Santos, John", helmet: "HM-006", status: "Checked In", battery: "73%" }
+                    { id: "0016", name: "Lopez, Maria", helmet: "HM-005", status: "Checked In" },
+                    { id: "0017", name: "Santos, John", helmet: "HM-006", status: "Checked In" }
                 ]
             }
         ];
@@ -617,7 +612,7 @@
                 
                 let studentsRows = '';
                 if (sec.students.length === 0) {
-                    studentsRows = `<tr><td colspan="6" class="p-6 text-center text-slate-400 text-xs">No students in this section yet.</td></tr>`;
+                    studentsRows = `<tr><td colspan="5" class="p-6 text-center text-slate-400 text-xs">No students in this section yet.</td></tr>`;
                 } else {
                     sec.students.forEach((s, sIndex) => {
                         let badgeClass = 'bg-emerald-50 text-emerald-600';
@@ -629,7 +624,6 @@
                                 <td class="p-4 font-semibold text-slate-800">${s.name}</td>
                                 <td class="p-4"><span class="bg-slate-100 px-2 py-1 rounded font-mono text-xs text-slate-700">${s.helmet}</span></td>
                                 <td class="p-4"><span class="px-3 py-1 rounded-full text-xs font-semibold ${badgeClass}">${s.status}</span></td>
-                                <td class="p-4 font-mono font-bold text-slate-700">${s.battery}</td>
                                 <td class="p-4 text-right">
                                     <button onclick="removeStudent('${sec.name}', '${s.id}')" class="text-slate-400 hover:text-rose-600 p-1.5 transition" title="Remove student">
                                         <i class="fa-solid fa-trash-can"></i>
@@ -664,7 +658,6 @@
                                 <th class="p-4">Name</th>
                                 <th class="p-4">Helmet Module</th>
                                 <th class="p-4">Status</th>
-                                <th class="p-4">Battery</th>
                                 <th class="p-4 text-right">Action</th>
                             </tr>
                         </thead>
@@ -744,8 +737,7 @@
                     id: id,
                     name: name,
                     helmet: helmet,
-                    status: "Checked In",
-                    battery: "100%"
+                    status: "Checked In"
                 });
                 closeAddStudentModal();
                 renderSectionsView();
@@ -780,15 +772,13 @@
                         <td class="p-4 font-semibold text-slate-800">${s.name}</td>
                         <td class="p-4 text-slate-500">${sec.name}</td>
                         <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Online</span></td>
-                        <td class="p-4 font-mono">${s.battery}</td>
-                        <td class="p-4 text-slate-500 font-mono">08:42 AM</td>
                     `;
                     tbody.appendChild(tr);
                 });
             });
 
             if (totalDevices === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400">No helmet devices bound to active students.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="4" class="p-6 text-center text-slate-400">No helmet devices bound to active students.</td></tr>`;
             }
         }
 
